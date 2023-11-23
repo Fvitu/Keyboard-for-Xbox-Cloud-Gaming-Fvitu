@@ -21,5 +21,5 @@ Hasta el momento, esta extensión no se encuentra en la tienda de extensiones de
 4. ¡Listo! Ya puedes utilizar el teclado y el mouse en Xbox Cloud Gaming.
 
 ## 📷 Fotos
-![Captura de pantalla N°1](/img/cap1.png)
-![Captura de pantalla N°2](/img/cap2.png)
+![Captura de pantalla N°1](/images/cap1.png)
+![Captura de pantalla N°2](/images/cap2.png)
