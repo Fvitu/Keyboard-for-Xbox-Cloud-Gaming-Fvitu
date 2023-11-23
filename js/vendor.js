@@ -85407,8 +85407,8 @@ function KeybindingsForButton({ button, value, onChange, readOnly, error, useSpa
     const spacers = !useSpacers || showNoneMessage ? [] : new Array(numSpacers).fill(' ');
     const modal = (react_1.default.createElement(react_responsive_modal_1.Modal, { center: true, open: isListening, onClose: handleCancelListen, showCloseIcon: false, focusTrapped: true, closeOnEsc: false },
         react_1.default.createElement("div", { className: "vertical centered unselectable", style: { width: '60vw', height: '50vh', padding: 20 }, onMouseDown: isListening ? handleMouseDown : undefined, onContextMenu: handleContextMenu, onWheel: isListening ? handleWheel : undefined },
-            react_1.default.createElement("h3", null, "Press any key or click to bind..."),
-            react_1.default.createElement("p", null, "(Press Esc to cancel)"))));
+            react_1.default.createElement("h3", null, "Presione cualquier tecla o haga clic para vincular..."),
+            react_1.default.createElement("p", null, "(Presione ESC para cancelar)"))));
     const errorNotice = error ? (react_1.default.createElement(react_2.TooltipHost, { content: error, id: `keybind-error-tooltip-${button}`, directionalHint: react_2.DirectionalHint.rightCenter },
         react_1.default.createElement(icons_1.ExclamationCircle, { className: "error margin-left-s" }))) : null;
     let buttonFriendly = (0, formattingUtils_1.camelToSpace)(button);
@@ -85420,15 +85420,15 @@ function KeybindingsForButton({ button, value, onChange, readOnly, error, useSpa
             buttonFriendly,
             modal,
             errorNotice),
-        showNoneMessage ? (react_1.default.createElement("td", { className: "none", colSpan: 3 }, "No bindings for button")) : null,
+        showNoneMessage ? (react_1.default.createElement("td", { className: "none", colSpan: 3 }, "Sin atajos para el botón")) : null,
         codes.map((code, i) => (react_1.default.createElement("td", { key: code },
             react_1.default.createElement("div", null,
                 react_1.default.createElement("span", null, formatCodeName(code)),
-                readOnly ? null : (react_1.default.createElement(react_2.IconButton, { className: "error-bg delete-icon", size: 18, iconProps: { iconName: 'BoxMultiplySolid', className: 'error' }, title: "Remove binding", disabled: isListening, onClick: () => handleRemove(i) })))))),
+                readOnly ? null : (react_1.default.createElement(react_2.IconButton, { className: "error-bg delete-icon", size: 18, iconProps: { iconName: 'BoxMultiplySolid', className: 'error' }, title: "Eliminar Atajo", disabled: isListening, onClick: () => handleRemove(i) })))))),
         showAddBtn ? (react_1.default.createElement("td", null,
-            react_1.default.createElement(react_2.IconButton, { iconProps: { iconName: 'Add' }, title: "Add binding", size: 18, disabled: isListening, onClick: handleClickAdd }))) : null,
+            react_1.default.createElement(react_2.IconButton, { iconProps: { iconName: 'Add' }, title: "Agregar atajo", size: 18, disabled: isListening, onClick: handleClickAdd }))) : null,
         spacers.map((_, i) => (react_1.default.createElement("td", { className: "empty", key: `s${i}` },
-            react_1.default.createElement("div", null, "Empty Binding"))))));
+            react_1.default.createElement("div", null, "Atajo vacío"))))));
 }
 exports["default"] = (0, react_1.memo)(KeybindingsForButton);
 
@@ -85629,11 +85629,11 @@ function processGamepadConfig(config) {
         // }
         for (const code of codes) {
             if (code === 'Escape') {
-                invalidButtons[button] = 'Binding Escape key is not allowed';
+                invalidButtons[button] = 'No se permite vincular la tecla ESC';
                 continue;
             }
             if (codeMapping[code]) {
-                invalidButtons[button] = `'${code}' is already bound to button '${(0, formattingUtils_1.camelToSpace)(codeMapping[code].button)}'`;
+                invalidButtons[button] = `'${code}' ya está vinculado al botón '${(0, formattingUtils_1.camelToSpace)(codeMapping[code].button)}'`;
                 continue;
             }
             const gamepadIndex = buttonToGamepadIndex[button];
@@ -85654,10 +85654,10 @@ function validateMouseConfig(mouseConfig) {
     const { sensitivity, mouseControls } = mouseConfig;
     const errors = {};
     if (mouseControls !== undefined && mouseControls !== 0 && mouseControls !== 1) {
-        errors.mouseControls = 'Invalid stick number';
+        errors.mouseControls = 'Número de stick no válido';
     }
     if (sensitivity < 1 || sensitivity > 1000) {
-        errors.mouseControls = 'Invalid sensitivity value. Must be between 1 and 1000.';
+        errors.mouseControls = 'Valor de sensibilidad no válido. Debe estar entre 1 y 1000.';
     }
     return { errors, hasErrors: Object.keys(errors).length > 0 };
 }

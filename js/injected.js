@@ -922,7 +922,7 @@ function checkIfInGame() {
 // Disable the fake gamepad and let them use their real gamepad
 function disableVirtualGamepad() {
     if ((0, gamepadSimulator_1.isEnabled)()) {
-        (0, snackbar_1.showToast)('Mouse/keyboard disabled');
+        (0, snackbar_1.showToast)('Mouse/keyboard desactivado');
     }
     (0, browserEventProcessor_1.disableConfig)();
     state_1.store.dispatch(state_1.actions.updatePreset({ presetName: null, preset: null }));
@@ -933,7 +933,7 @@ function updateActiveGamepadConfig(name, config) {
         disableVirtualGamepad();
         return;
     }
-    (0, snackbar_1.showToast)(`'${name}' preset activated`);
+    (0, snackbar_1.showToast)(`'${name}' preset activado`);
     (0, browserEventProcessor_1.enableConfig)(config);
     state_1.store.dispatch(state_1.actions.updatePreset({ presetName: name, preset: config }));
 }

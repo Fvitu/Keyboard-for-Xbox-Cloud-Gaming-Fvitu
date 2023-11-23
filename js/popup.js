@@ -183,7 +183,7 @@ function GamepadConfigEditor({ name, onSubmitChanges, onCancelCreate, onActivate
         react_2.default.createElement("section", { className: "horizontal space-between padding-top-s" },
             react_2.default.createElement("div", { className: "margin-right-s" },
                 react_2.default.createElement(react_1.DefaultButton, { onClick: handleToggleEditing }, isEditing ? 'Cancelar' : 'Editar'),
-                !isEditing ? (react_2.default.createElement(react_1.DefaultButton, { className: "margin-left-s", disabled: isDefaultConfig, onClick: handleDelete, title: isDefaultConfig ? 'Default preset cannot be deleted' : undefined }, "Eliminar")) : null,
+                !isEditing ? (react_2.default.createElement(react_1.DefaultButton, { className: "margin-left-s", disabled: isDefaultConfig, onClick: handleDelete, title: isDefaultConfig ? 'El preset predeterminado no se puede eliminar' : undefined }, "Eliminar")) : null,
                 !isEditing ? (react_2.default.createElement(react_1.DefaultButton, { className: "margin-left-s", onClick: handleExport }, "Exportar")) : null),
             isEditing ? (react_2.default.createElement(react_1.PrimaryButton, { type: "submit", disabled: state.errors.hasErrors || !hasChanges || isSubmitting, iconProps: saveIcon }, isNewDraft ? 'Create' : 'Guardar')) : (react_2.default.createElement(react_1.PrimaryButton, { onClick: handleActivate, disabled: state.errors.hasErrors || isActive || isSubmitting, iconProps: useIcon }, "Utilizar")))));
 }
@@ -401,8 +401,15 @@ function Header({ gameName, activeConfig, isEnabled }) {
     return (react_1.default.createElement(react_2.ThemeProvider, { theme: theme_1.fluentXboxHeaderTheme },
         react_1.default.createElement("header", { className: "box horizontal green-bg space-between setup-details" },
             react_1.default.createElement("div", { className: "logo unselectable horizontal centered-v" },
-                react_1.default.createElement(Logo_1.default, { isEnabled: isEnabled }),
-                react_1.default.createElement(react_2.Toggle, { title: `${isEnabled ? 'Deshabilitar' : 'Habilitar'} mouse y teclado`, checked: isEnabled, onChange: handleToggle, className: "no-margin margin-left" })),
+                react_1.default.createElement(Logo_1.default, { isEnabled: isEnabled}),
+                react_1.default.createElement(react_2.Toggle, { title: `${isEnabled ? 'Deshabilitar' : 'Habilitar'} mouse y teclado`, checked: isEnabled, onChange: handleToggle, className: "no-margin margin-left" }),
+                /* Crear el botón justo aquí */
+                react_1.default.createElement("img", { 
+                    src: "../fortnite.png", 
+                    onClick: () => {window.open('https://www.xbox.com/es-AR/play/launch/fortnite/BT5P2X999VH2')}, 
+                    style: {cursor: 'pointer', width: 35, height: 35, marginLeft: 10, opacity: 0.9},
+                    title: "Jugar Fortnite"
+                })),
             react_1.default.createElement("div", { className: "horizontal centered" },
                 react_1.default.createElement("div", { className: "vertical centered-v left-aligned margin-right" },
                     react_1.default.createElement("div", { className: "overflow-ellipsis" },
@@ -692,12 +699,7 @@ function NewConfigButton({ disabled, isPaid, allConfigs, onCreate, onImport, onO
     }, [name, allConfigs]);
     const triggerRef = (0, react_1.useRef)(null);
     const handleNewBtnClick = (0, react_1.useCallback)(() => {
-        if (isPaid) {
-            setIsOpen(!isOpen);
-        }
-        else {
-            onOpenPaymentPage();
-        }
+        setIsOpen(!isOpen);
     }, [isOpen, isPaid, onOpenPaymentPage]);
     const handleClose = (0, react_1.useCallback)(() => {
         setIsOpen(false);
@@ -708,10 +710,10 @@ function NewConfigButton({ disabled, isPaid, allConfigs, onCreate, onImport, onO
             onImport(name, config);
             if (isMounted())
                 setName('');
-            alert('Preset file imported successfully');
+            alert('Archivo preset importado correctamente');
         })
             .catch((errorMsg) => {
-            console.error('Import failed', errorMsg);
+            console.error('Importación fallida', errorMsg);
             alert(errorMsg);
         });
     }, [isMounted, name, onImport]);
@@ -729,12 +731,12 @@ function NewConfigButton({ disabled, isPaid, allConfigs, onCreate, onImport, onO
         isOpen ? (react_1.default.createElement(react_2.Callout, { setInitialFocus: true, gapSpace: 0, directionalHint: react_2.DirectionalHint.bottomRightEdge, target: `#${buttonId}`, onDismiss: handleClose, 
             // Needed to fix issue in Safari
             preventDismissOnEvent: (e) => e.type === 'resize' },
-            react_1.default.createElement("div", { style: { width: 250 }, className: "padding-full" },
-                react_1.default.createElement(react_2.TextField, { placeholder: "New preset name", autoFocus: isOpen, value: name, maxLength: 18, onKeyPress: handleKeyPress, onChange: (e) => setName(e.currentTarget.value) }),
+            react_1.default.createElement("div", { style: { width: 275 }, className: "padding-full" },
+                react_1.default.createElement(react_2.TextField, { placeholder: "Nombre del nuevo preset", autoFocus: isOpen, value: name, maxLength: 18, onKeyPress: handleKeyPress, onChange: (e) => setName(e.currentTarget.value) }),
                 isTaken ? react_1.default.createElement("div", { className: "error margin-top-s" }, "Config with that name already exists!") : null,
                 react_1.default.createElement("div", { className: "horizontal space-between margin-top-s" },
-                    react_1.default.createElement(react_2.DefaultButton, { disabled: !name || isTaken, onClick: handleImport }, "Import File"),
-                    react_1.default.createElement(react_2.PrimaryButton, { disabled: !name || isTaken, onClick: handleSubmit }, "Create New"))))) : null));
+                    react_1.default.createElement(react_2.DefaultButton, { disabled: !name || isTaken, onClick: handleImport }, "Importar archivo"),
+                    react_1.default.createElement(react_2.PrimaryButton, { disabled: !name || isTaken, onClick: handleSubmit }, "Crear nuevo"))))) : null));
 }
 exports["default"] = NewConfigButton;
 
@@ -991,7 +993,15 @@ function UpsellModal() {
     }), [dispatch]);
     return (react_2.default.createElement(react_responsive_modal_1.Modal, { center: true, open: show, onClose: handleClose, showCloseIcon: true, focusTrapped: true, closeOnEsc: true },
         react_2.default.createElement("div", { className: "explanation-modal-xmnk" },
-            react_2.default.createElement("h2", null, "Lo siento, todavía no es posible utilizar esta función"))));
+            react_2.default.createElement("h2", null, "Upgrade for additional features"),
+            react_2.default.createElement("p", null,
+                react_2.default.createElement("strong", null, "Pay once - access these premium features forever!")),
+            react_2.default.createElement("ul", null,
+                react_2.default.createElement("li", null, "Create additional presets"),
+                react_2.default.createElement("li", null, "Import community-made presets for existing games"),
+                react_2.default.createElement("li", null, "More features coming soon")),
+            react_2.default.createElement("div", { style: { textAlign: 'center' } },
+                react_2.default.createElement(react_1.CompoundButton, { primary: true, secondaryText: `Only ${price}`, onClick: openPaymentPage, styles: { root: { width: '100%' }, textContainer: { textAlign: 'center' } } }, "Upgrade now")))));
 }
 exports["default"] = UpsellModal;
 
