@@ -1,25 +1,25 @@
-# 🖱⌨ Teclado para Xbox Cloud Gaming (Fvitu)
-Una extensión para el navegador que permite integrar el teclado y mouse en Xbox Cloud Gaming utilizando un sistema de mapeado de teclas que convierte las pulsaciones de teclas en pulsaciones de botones del mando de Xbox.
+# 🖱⌨ Xbox Cloud Gaming Keyboard (Fvitu)
+A browser extension that enables keyboard and mouse integration in Xbox Cloud Gaming using a key mapping system that converts key presses into Xbox controller button presses.
 <br>
 
-[![Apoyo](https://img.shields.io/badge/Dar_Apoyo-37a779?style=for-the-badge)](https://fvitu.link/rese%C3%B1a.php)
+[![Support](https://img.shields.io/badge/Support-37a779?style=for-the-badge)](https://fvitu.link/review.php)
 
-## ✨ Instalación
-Hasta el momento, esta extensión no se encuentra en la tienda de extensiones de Google Chrome, por lo que es necesario instalarla manualmente. Para ello, sigue los siguientes pasos:
-1. Descarga la última versión de la extensión desde [aquí](https://github.com/Fvitu/Teclado-para-Xbox-Cloud-Gaming-Fvitu/releases/tag/Xcloud).
-2. Descomprime el archivo descargado.
-3. Abre Google Chrome y escribe en la barra de direcciones `chrome://extensions`.
-4. Activa el modo desarrollador.
-5. Haz clic en el botón "Cargar descomprimida" y selecciona la carpeta descomprimida en el paso 2.
-6. ¡Listo! Ya puedes utilizar la extensión.
+## ✨ Installation
+Currently, this extension isn't available in the Google Chrome extension store, so manual installation is required. Follow these steps:
+1. Download the latest version of the extension from [here](https://github.com/Fvitu/Teclado-para-Xbox-Cloud-Gaming-Fvitu/releases/tag/Xcloud).
+2. Unzip the downloaded file.
+3. Open Google Chrome and type in the address bar `chrome://extensions`.
+4. Enable developer mode.
+5. Click on the "Load unpacked" button and select the unzipped folder from step 2.
+6. Done! You can now use the extension.
 
-## 📝 Instrucciones
-1. Abre la página de Xbox Cloud Gaming.
-2. Inicia sesión con tu cuenta.
-3. Haz clic en el icono de la extensión.
-3. Configura las teclas que quieras utilizar para cada botón del mando de Xbox con el botón de editar y luego haz clic en el botón "Guardar". Puedes también crear tus propias configuraciones y guardarlas para utilizarlas en otro momento mediante la función de exportar.
-4. ¡Listo! Ya puedes utilizar el teclado y el mouse en Xbox Cloud Gaming.
+## 📝 Instructions
+1. Open the Xbox Cloud Gaming page.
+2. Log in with your account.
+3. Click on the extension icon.
+4. Set up the keys you want to use for each Xbox controller button using the edit button, then click "Save." You can also create your own configurations and save them to use later through the export function.
+5. Done! You can now use the keyboard and mouse in Xbox Cloud Gaming.
 
-## 📷 Fotos
-![Captura de pantalla N°1](/images/cap1.png)
-![Captura de pantalla N°2](/images/cap2.png)
+## 📷 Screenshots
+![Screenshot N°1](/images/cap1.png)
+![Screenshot N°2](/images/cap2.png)
