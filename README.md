@@ -2,7 +2,7 @@
 A browser extension that enables keyboard and mouse integration in Xbox Cloud Gaming using a key mapping system that converts key presses into Xbox controller button presses.
 <br>
 
-[![Support](https://img.shields.io/badge/Support-37a779?style=for-the-badge)](https://fvitu.link/review.php)
+[![Support](https://img.shields.io/badge/Support-37a779?style=for-the-badge)](https://fvitu.link/reseña.php)
 
 ## ✨ Installation
 Currently, this extension isn't available in the Google Chrome extension store, so manual installation is required. Follow these steps:
